@@ -4,12 +4,7 @@ using UnityEngine;
 public class ControladorJogador : MonoBehaviour
 {
     public float taxaMovimentacao;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    public Geral JuizdoJogo;
 
     // Update is called once per frame
     void Update()
@@ -38,9 +33,15 @@ public class ControladorJogador : MonoBehaviour
         Vector3 novaPos = new Vector3(altX, altY, 0);
         transform.position += novaPos;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Voador")
+        {
+            JuizdoJogo.MarcarPonto();
+            collision.GetComponent<Boladev>().posicaoObj.x =
+                collision.GetComponent<Boladev>().posInicialX;
+        }
+    }
+
 }
-
-
-          
-
-
