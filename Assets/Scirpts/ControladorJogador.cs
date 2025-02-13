@@ -5,6 +5,7 @@ public class ControladorJogador : MonoBehaviour
 {
     public float taxaMovimentacao;
     public Geral JuizdoJogo;
+    private object posicaoObj;
 
     // Update is called once per frame
     void Update()
@@ -37,11 +38,23 @@ public class ControladorJogador : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Voador")
-        {
+        { 
+            //Marcando um ponto no plcar
             JuizdoJogo.MarcarPonto();
+
+            //Volta o objeto para a posição 
             collision.GetComponent<Boladev>().posicaoObj.x =
                 collision.GetComponent<Boladev>().posInicialX;
-        }
+
+
+            //Atualizar a posição vertical do objeto 
+            float posicaoY = Random.value * 470;
+            collision.GetComponent<Boladev>().posicaoObj.y = posicaoY;
+
+            // Trocar a imagem do objeto a ser coletado
+            collision.GetComponent<Boladev>().MudarImagem();
+        }   
+              
     }
 
 }
