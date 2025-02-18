@@ -5,7 +5,7 @@ public class Geral : MonoBehaviour
 {
     internal int placarJogadorNum, recordeNum;
     public Text placarJogadorTexto, recordeTexto;
-    public AudioSource somPontoGanho;
+    public AudioSource somPontoGanho, audiofundo;
 
     public GameObject telaBoasVindas, TelaGameOver;
     public Boladev  objetoVoador;
@@ -54,6 +54,8 @@ public class Geral : MonoBehaviour
         // Zerar o placar
         placarJogadorNum = 0;
         AtualizarTextoPlacar ();
+
+        audiofundo.Play();
     }
 }   
 
