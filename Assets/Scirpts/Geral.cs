@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Geral : MonoBehaviour
@@ -56,6 +57,11 @@ public class Geral : MonoBehaviour
         AtualizarTextoPlacar ();
 
         audiofundo.Play();
+    }
+
+    public void CarregarCena(string nomeDaCena)
+    {
+        SceneManager.LoadScene(nomeDaCena); 
     }
 }   
 
